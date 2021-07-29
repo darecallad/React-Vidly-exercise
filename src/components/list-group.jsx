@@ -14,7 +14,7 @@ const ListGroup = (props) => {
 };
 
 ListGroup.defaultProps = {
-  textProperty: "mame",
+  textProperty: "name",
   valueProperty: "_id",
 };
 // this default props made interface cleaner
