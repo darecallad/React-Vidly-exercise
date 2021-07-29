@@ -1,0 +1,33 @@
+import React from "react";
+import _ from "lodash";
+// npm i lodash@4.17.0
+
+const Pagination = (props) => {
+  const { itemsCount, pageSize } = props;
+  const pageCount = Math.ceil(itemsCount / pageSize);
+  if (pageCount === 1) return null;
+  const pages = _.range(1, pageCount + 1);
+
+  return (
+    <ul className="pagination">
+      {pages.map((page) => (
+        <li key={page} className="page-item">
+          <a className="page-link">{page}</a>
+        </li>
+      ))}
+    </ul>
+  );
+};
+
+export default Pagination;
+{
+  /* <div>
+  <nav aria-label="Page navigation example">
+    <ul className="pagination">
+      <li className="page-item">
+        <a className="page-link"></a>
+      </li>
+    </ul>
+  </nav>
+</div>; */
+}
