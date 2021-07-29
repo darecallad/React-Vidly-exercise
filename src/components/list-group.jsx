@@ -1,13 +1,14 @@
 import React from "react";
 
-const ListGroup = () => {
+const ListGroup = (props) => {
+  const { items, textProperty, valueProperty } = props;
   return (
     <ul className="list-group">
-      <li className="list-group-item">All Genres</li>
-      <li className="list-group-item">A second item</li>
-      <li className="list-group-item">A third item</li>
-      <li className="list-group-item">A fourth item</li>
-      <li className="list-group-item">And a fifth one</li>
+      {items.map((item) => (
+        <li key={item[valueProperty]} className="list-group-item">
+          {item[textProperty]}
+        </li>
+      ))}
     </ul>
   );
 };
