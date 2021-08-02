@@ -1,15 +1,15 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const NavBar = () => {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="#">
-          Navbar
-        </a>
+      <div className="container-fluid">
+        <Link className="navbar-brand" to="/">
+          Vidly
+        </Link>
         <button
-          class="navbar-toggler"
+          className="navbar-toggler"
           type="button"
           data-bs-toggle="collapse"
           data-bs-target="#navbarSupportedContent"
@@ -17,9 +17,9 @@ const NavBar = () => {
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
-          <span class="navbar-toggler-icon"></span>
+          <span className="navbar-toggler-icon"></span>
         </button>
-        <div className="" id="navbarNavAltMarup">
+        <div className="collapse navbar-collapse" id="navbarNavAltMarup">
           <div className="navbar-nav">
             <NavLink className="nav-item nav-link" to="/movies">
               Movies
