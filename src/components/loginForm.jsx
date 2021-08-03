@@ -24,12 +24,10 @@ class LoginForm extends Component {
   };
 
   validateProperty = ({ name, value }) => {
-    if (name === "username") {
-      if (value.trim() === "") return "username is required";
-    }
-    if (name === "password") {
-      if (value.trim() === "") return "Password is required";
-    }
+    const obj = { [name]: value };
+    const schema = { [name]: this.schema[name] };
+    const { error } = Joi.validate(obj, schema);
+    return error ? error.details[0].message : null;
   };
 
   handleSubmit = (e) => {
@@ -39,10 +37,8 @@ class LoginForm extends Component {
     this.setState({ errors: errors || {} });
     if (errors) return;
     // call the server save the change and rediect user to page
-    const username = this.username.current.value;
+    // const username = this.username.current.value;
     // access DOM
-
-    console.log("Submited");
   };
 
   handleChange = ({ currentTarget: input }) => {
