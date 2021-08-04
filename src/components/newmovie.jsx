@@ -46,7 +46,7 @@ class NewMovie extends Form {
     return {
       _id: movie._id,
       title: movie.title,
-      genresId: movie.genres._id,
+      genreId: movie.genres._id,
       numberInStock: movie.numberInStock,
       dailyRentalRate: movie.dailyRentalRate,
     };
