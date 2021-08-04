@@ -87,7 +87,7 @@ class Movies extends Component {
           />
         </div>
         <div className="col">
-          <Link className="btn btn-primary m-2" to="./moviesform/new">
+          <Link className="btn btn-primary m-2" to="/movies/new">
             New Movie
           </Link>
           <p>Showing {totalCount} movies in the database.</p>

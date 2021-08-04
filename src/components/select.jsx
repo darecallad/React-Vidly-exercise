@@ -1,5 +1,4 @@
 import React from "react";
-import ListGroup from "./list-group";
 
 const Select = ({ name, label, options, error, ...rest }) => {
   return (

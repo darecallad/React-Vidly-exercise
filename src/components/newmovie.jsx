@@ -6,7 +6,7 @@ import Form from "./form";
 
 class NewMovie extends Form {
   state = {
-    data: { title: "", genresId: "", numberInStock: "", dailyRentalRate: "" },
+    data: { title: "", genreId: "", numberInStock: "", dailyRentalRate: "" },
     genres: [],
     errors: {},
   };
@@ -14,7 +14,7 @@ class NewMovie extends Form {
   schema = {
     _id: Joi.string(),
     title: Joi.string().required().label("Title"),
-    genresId: Joi.string().required().label("Genres"),
+    genreId: Joi.string().required().label("Genres"),
     numberInStock: Joi.number()
       .integer()
       .min(0)
@@ -46,7 +46,7 @@ class NewMovie extends Form {
     return {
       _id: movie._id,
       title: movie.title,
-      genreId: movie.genres._id,
+      genreId: movie.genre._id,
       numberInStock: movie.numberInStock,
       dailyRentalRate: movie.dailyRentalRate,
     };
@@ -64,7 +64,7 @@ class NewMovie extends Form {
         <h1>Movie Form</h1>
         <form onSubmit={this.handleSubmit}>
           {this.renderInput("title", "Title")}
-          {this.renderSelect("genres", "Grene", this.state.genres)}
+          {this.renderSelect("genreId", "Grene", this.state.genres)}
           {this.renderInput("numberInStock", "Number in Stock", "number")}
           {this.renderInput("dailyRentalRate", "Rate", "number")}
 
