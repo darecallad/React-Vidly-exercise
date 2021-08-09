@@ -1,5 +1,7 @@
 import React, { Component } from "react";
-import { getMovies } from "../services/fakeMovieService";
+import { toast } from "react-toastify";
+import { getMovies, deleteMovie } from "../services/fakeMovieService";
+// import {getMovies, deleteMovie } from './MovieService";
 import { getGenres } from "../services/fakeGenreService";
 // import {getGenres } from "./services/GenreService";
 import MoviesTable from "./moviesTable";
@@ -26,12 +28,22 @@ class Movies extends Component {
     // return a promise
     const genres = [{ _id: "", name: "All Genres" }, ...data];
 
+    const { data: movies } = await getMovies();
+    // this.serState({ movies, genres});
     this.setState({ movies: getMovies(), genres });
   }
 
-  handleDelete = (movie) => {
-    const movies = this.state.movies.filter((m) => m._id !== movie._id);
+  handleDelete = async (movie) => {
+    const originMovies = this.state.moveis;
+
+    const movies = originMovies.filter((m) => m._id !== movie._id);
     this.setState({ movies });
+
+    try {
+      await deleteMovie(movie._id);
+    } catch (ex) {
+      if (ex.response && ex.response.status === 404) toast.error("Error");
+    }
   };
 
   handleLike = (movie) => {
