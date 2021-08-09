@@ -5,10 +5,11 @@ import NavBar from "./components/navbar";
 import Rentals from "./components/rentals";
 import NotFound from "./components/nonfound";
 import Customers from "./components/customers";
-import MovieForm from "./components/movieform";
 import LoginForm from "./components/loginForm";
 import Register from "./components/register";
 import NewMovie from "./components/newmovie";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import "./App.css";
 
@@ -16,6 +17,7 @@ class App extends Component {
   render() {
     return (
       <React.Fragment>
+        <ToastContainer />
         <NavBar />
         <main className="container">
           <Switch>
