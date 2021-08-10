@@ -17,7 +17,7 @@ export function logout() {
 
 http.setJwt(getJwt());
 
-export function getCurrentUsgetCer() {
+export function getCurrentUser() {
   try {
     const jwt = localStorage.getItem(tokenkey);
     return jwtDecode(jwt);
@@ -35,7 +35,7 @@ export function getJwt() {
 export default {
   login,
   logout,
-  getCurrentUseer,
+  getCurrentUser,
   loginWithJwt,
   getJwt,
 };
