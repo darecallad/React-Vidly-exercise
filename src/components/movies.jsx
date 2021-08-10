@@ -30,7 +30,7 @@ class Movies extends Component {
 
     const { data: movies } = await getMovies();
     // this.serState({ movies, genres});
-    this.setState({ movies: getMovies(), genres });
+    this.setState({ movies, genres });
   }
 
   handleDelete = async (movie) => {
