@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Joi from "joi-browser";
 import Form from "./form";
 import * as userService from "../services/userService";
+import auth from "../services/authService";
 
 class Register extends Form {
   state = {
@@ -20,7 +21,7 @@ class Register extends Form {
     try{
       const response = await userService.register(this.state.data);
       // .herder("access-control-expose-headers", "x-auth-token")
-      localStorage.setItem('token',response.headers['x-auth-token']);
+      auth.loginWithJwt(response.headers['x-auth-token']);
       window.location = "/";  
       // reload the page
     }catch(ex){
