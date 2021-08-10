@@ -11,11 +11,13 @@ export function getMovie(movieId) {
 }
 
 export function saveMovie(movie) {
-  let movieInDb = movies.find((m) => m._id === movie._id) || {};
-  movieInDb.title = movie.title;
-  movieInDb.genre = genresAPI.genres.find((g) => g._id === movie.genreId);
-  movieInDb.numberInStock = movie.numberInStock;
-  movieInDb.dailyRentalRate = movie.dailyRentalRate;
+  if (movie._id) {
+    const body = { ...movie };
+    delete body._idl;
+    http.put(apiEndpoint + "/" + movie._id, body);
+  }
+
+  return http.post(apiEndpoint, movie);
 }
 
 export function getMovies() {
