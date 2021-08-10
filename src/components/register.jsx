@@ -21,7 +21,8 @@ class Register extends Form {
       const response = await userService.register(this.state.data);
       // .herder("access-control-expose-headers", "x-auth-token")
       localStorage.setItem('token',response.headers['x-auth-token']);
-      this.props.history.push('/');
+      window.location = "/";  
+      // reload the page
     }catch(ex){
       if(ex.response && ex.response.status === 400)
       const errors = {...this.state.errors};
