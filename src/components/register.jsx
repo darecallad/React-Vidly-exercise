@@ -18,8 +18,10 @@ class Register extends Form {
   doSubmit = async () => {
     // call the server
     try{
-
-      await userService.register(this.state.data);
+      const response = await userService.register(this.state.data);
+      // .herder("access-control-expose-headers", "x-auth-token")
+      localStorage.setItem('token',response.headers['x-auth-token']);
+      this.props.history.push('/');
     }catch(ex){
       if(ex.response && ex.response.status === 400)
       const errors = {...this.state.errors};
