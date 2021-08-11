@@ -2,6 +2,9 @@ import axios from "axios";
 import logger from "./logservice";
 import { toast } from "react-toastify";
 
+axios.defaults.baseURL = process.env.REACT_APP_API_URL;
+// this line will be replaced
+
 axios.interceptors.response.use(null, (error) => {
   const expectError =
     error.response &&
